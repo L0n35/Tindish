@@ -1,0 +1,518 @@
+{
+    "baja-fish-tacos": {
+        "title": "001 Tacos de carnitas, carne asada y al pastor.jpg",
+        "author": "Larry Miller",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:001_Tacos_de_carnitas,_carne_asada_y_al_pastor.jpg"
+    },
+    "banh-xeo": {
+        "title": "B\u00e1nh x\u00e8o with pork sausage and shrimp served with various garnishes.jpg",
+        "author": "Ser Amantio di Nicolao",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_x%C3%A8o_with_pork_sausage_and_shrimp_served_with_various_garnishes.jpg"
+    },
+    "beef-birria-tacos": {
+        "title": "Quesabirria at Taqueria La Hacienda, Sonoma, California - Sarah Stierch.jpg",
+        "author": "Missvain",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Quesabirria_at_Taqueria_La_Hacienda,_Sonoma,_California_-_Sarah_Stierch.jpg"
+    },
+    "beef-bulgogi-bowl": {
+        "title": "Korean Beef Bulgogi Rice Bowl (34817154336).jpg",
+        "author": "A Healthier Michigan from Detroit, United States",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Korean_Beef_Bulgogi_Rice_Bowl_(34817154336).jpg"
+    },
+    "beef-burrito-bowl": {
+        "title": "Los Gallitos - October 31 2022 - Sarah Stierch 04.jpg",
+        "author": "Missvain",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Los_Gallitos_-_October_31_2022_-_Sarah_Stierch_04.jpg"
+    },
+    "beef-lasagne": {
+        "title": "Lasagne - stonesoup.jpg",
+        "author": "jules / stonesoup",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lasagne_-_stonesoup.jpg"
+    },
+    "beef-massaman-curry": {
+        "title": "Masaman-curry.jpg",
+        "author": "Vee Satayamas",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Masaman-curry.jpg"
+    },
+    "beef-ragu-tagliatelle": {
+        "title": "Tagliatelle al rag\u00f9.jpg",
+        "author": "Catia Giaccherini",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Tagliatelle_al_rag%C3%B9.jpg"
+    },
+    "bibimbap": {
+        "title": "Korean.food-Bibimbap-02.jpg",
+        "author": "abex (a flickr user)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Korean.food-Bibimbap-02.jpg"
+    },
+    "buffalo-wings": {
+        "title": "Buffalo wings-01.jpg",
+        "author": "Clotee Pridgen Allochuku",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Buffalo_wings-01.jpg"
+    },
+    "burrata-tomato-plate": {
+        "title": "Burrata 06.jpg",
+        "author": "Arnaud 25",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Burrata_06.jpg"
+    },
+    "butter-chicken-naan": {
+        "title": "Chicken makhani.jpg",
+        "author": "stu_spivack",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Chicken_makhani.jpg"
+    },
+    "caprese-ciabatta": {
+        "title": "Blue cheese and tomato sandwiches.jpg",
+        "author": "jeffreyw",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Blue_cheese_and_tomato_sandwiches.jpg"
+    },
+    "char-siu-rice": {
+        "title": "Rice with Char Siu and Meigan Cai Minced Pork.jpg",
+        "author": "Neodymium+Nd",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Rice_with_Char_Siu_and_Meigan_Cai_Minced_Pork.jpg"
+    },
+    "chicken-biryani": {
+        "title": "Shrimp Biriyani.JPG",
+        "author": "Jyothis",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Shrimp_Biriyani.JPG"
+    },
+    "chicken-caesar-salad": {
+        "title": "Chicken Caesar Salad at French Market Restaurant.jpg",
+        "author": "pattyonflickr",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Chicken_Caesar_Salad_at_French_Market_Restaurant.jpg"
+    },
+    "chicken-fajitas": {
+        "title": "Chicken fajitas - La Hacienda - Sarah Stierch.jpg",
+        "author": "Missvain",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Chicken_fajitas_-_La_Hacienda_-_Sarah_Stierch.jpg"
+    },
+    "chicken-fried-rice": {
+        "title": "Fried rice in home.jpg",
+        "author": "Peachyeung316",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Fried_rice_in_home.jpg"
+    },
+    "chicken-gyros": {
+        "title": "Gyro meat on pita.jpg",
+        "author": "jeffreyw",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Gyro_meat_on_pita.jpg"
+    },
+    "chicken-pot-pie": {
+        "title": "191-365 Chicken Pot Pie.jpg",
+        "author": "Elsie Hui",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:191-365_Chicken_Pot_Pie.jpg"
+    },
+    "chicken-quinoa-tabbouleh": {
+        "title": "Banh Mi Burger & Quinoa Tabbouleh (15839231859).jpg",
+        "author": "Mack Male from Edmonton, AB, Canada",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Banh_Mi_Burger_%26_Quinoa_Tabbouleh_(15839231859).jpg"
+    },
+    "chicken-satay-skewers": {
+        "title": "CHICKEN SATAY.jpg",
+        "author": "Elly Suhailee",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:CHICKEN_SATAY.jpg"
+    },
+    "chicken-schnitzel": {
+        "title": "Wiener Schnitzel - Chicken with Cheese Sauce - plus Frites and a Green Salad - Walvis Bay, Namibia.jpg",
+        "author": "Wiki.cullin",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Wiener_Schnitzel_-_Chicken_with_Cheese_Sauce_-_plus_Frites_and_a_Green_Salad_-_Walvis_Bay,_Namibia.jpg"
+    },
+    "chicken-shawarma-plate": {
+        "title": "Loaded Shawarma.jpg",
+        "author": "Dr. Chinchu C.",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Loaded_Shawarma.jpg"
+    },
+    "chicken-veg-stir-fry": {
+        "title": "Noodle stir fry with chicken, shrimp, and broccoli (18471621051).jpg",
+        "author": "jeffreyw",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Noodle_stir_fry_with_chicken,_shrimp,_and_broccoli_(18471621051).jpg"
+    },
+    "chirashi-bowl": {
+        "title": "Chirashi-zushi.jpg",
+        "author": "Arashiyama",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Chirashi-zushi.jpg"
+    },
+    "courgette-lemon-linguine": {
+        "title": "Zucchini oil pasta.jpg",
+        "author": "chomjong",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Zucchini_oil_pasta.jpg"
+    },
+    "crispy-beef-chow-mein": {
+        "title": "Malaysian breakfast.jpg",
+        "author": "Jason Thien from Kampar, Malaysia",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Malaysian_breakfast.jpg"
+    },
+    "crispy-duck-pancakes": {
+        "title": "Duck and kimchi pancake, with soy scallion sauce - Cambridge, MA.jpg",
+        "author": "Daderot",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Duck_and_kimchi_pancake,_with_soy_scallion_sauce_-_Cambridge,_MA.jpg"
+    },
+    "double-smash-burger": {
+        "title": "Double Smash Burger with Fries.jpg",
+        "author": "Wiki.cullin",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Double_Smash_Burger_with_Fries.jpg"
+    },
+    "falafel-buddha-bowl": {
+        "title": "BuddhaBowlLot.jpg",
+        "author": "PizzaMan",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:BuddhaBowlLot.jpg"
+    },
+    "falafel-wrap": {
+        "title": "Falafel &Tzatziki Wrap - Lavash.jpg",
+        "author": "Andy Li",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Falafel_%26Tzatziki_Wrap_-_Lavash.jpg"
+    },
+    "fish-and-chips": {
+        "title": "Fish and chips plate with peas.jpg",
+        "author": "Grendelkhan",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Fish_and_chips_plate_with_peas.jpg"
+    },
+    "fish-ceviche": {
+        "title": "Ceviche del Per\u00fa.jpg",
+        "author": "No machine-readable author provided. Manuel Gonz\u00e1lez Olaechea assumed (based on copyright claims).",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ceviche_del_Per%C3%BA.jpg"
+    },
+    "french-onion-soup": {
+        "title": "Mmm...onion soup (5344349906).jpg",
+        "author": "jeffreyw",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Mmm...onion_soup_(5344349906).jpg"
+    },
+    "gado-gado": {
+        "title": "Gado Gado PTG Gourmet IITMandi Nov17 D72 3256.jpg",
+        "author": "Timothy A. Gonsalves",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Gado_Gado_PTG_Gourmet_IITMandi_Nov17_D72_3256.jpg"
+    },
+    "greek-halloumi-salad": {
+        "title": "DSC04493edtrftu.jpg",
+        "author": "Khaled",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:DSC04493edtrftu.jpg"
+    },
+    "halloumi-grain-bowl": {
+        "title": "Smokey Millet Super Grain Bowl With Crispy Tofu.jpg",
+        "author": "Simmer + Sauce",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Smokey_Millet_Super_Grain_Bowl_With_Crispy_Tofu.jpg"
+    },
+    "herby-chicken-couscous": {
+        "title": "Liat Portal for Foodie Disorder - Algerian couscous with vegetable soup and chicken.jpg",
+        "author": "HaJunkiyada",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Algerian_couscous_with_vegetable_soup_and_chicken.jpg"
+    },
+    "honey-soy-chicken-traybake": {
+        "title": "Roast Chicken Legs and Thighs (31196736704).jpg",
+        "author": "Willis Lam",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Roast_Chicken_Legs_and_Thighs_(31196736704).jpg"
+    },
+    "jerk-chicken-rice": {
+        "title": "Jerk Chicken, Rice.jpg",
+        "author": "simon thomas",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Jerk_Chicken,_Rice.jpg"
+    },
+    "katsu-sando": {
+        "title": "KatsuSando6515.jpg",
+        "author": "No machine-readable author provided. Fg2 assumed (based on copyright claims).",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:KatsuSando6515.jpg"
+    },
+    "korean-fried-chicken": {
+        "title": "Korean Fried Chicken - Chikin.jpg",
+        "author": "Francesc Fort",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Korean_Fried_Chicken_-_Chikin.jpg"
+    },
+    "lamb-doner-kebab": {
+        "title": "D\u00f6ner Kebab, Berlin, 2010 (01).jpg",
+        "author": "AleGranholm",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:D%C3%B6ner_Kebab,_Berlin,_2010_(01).jpg"
+    },
+    "lamb-kofta-flatbread": {
+        "title": "Lamb Kofta (14908645506).jpg",
+        "author": "Arnold Gatilao from Oakland, CA, USA",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lamb_Kofta_(14908645506).jpg"
+    },
+    "lamb-pide": {
+        "title": "Lamb Pide (8522529575).jpg",
+        "author": "Charles Haynes",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Lamb_Pide_(8522529575).jpg"
+    },
+    "lamb-rogan-josh": {
+        "title": "Rogan Josh Kashmiri.jpg",
+        "author": "Spice Eats",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Rogan_Josh_Kashmiri.jpg"
+    },
+    "mapo-tofu": {
+        "title": "Authentic Mapo Tofu.jpg",
+        "author": "Sichuanfoodlover",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Authentic_Mapo_Tofu.jpg"
+    },
+    "mezze-plate": {
+        "title": "Queens Head and Artichoke, Regents Park, London (3676047519).jpg",
+        "author": "Ewan Munro from London, UK",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Queens_Head_and_Artichoke,_Regents_Park,_London_(3676047519).jpg"
+    },
+    "miso-salmon-greens": {
+        "title": "Miso Salmon.jpg",
+        "author": "Calvin Marquess",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Miso_Salmon.jpg"
+    },
+    "mortadella-focaccia": {
+        "title": "Mortadella IMGP0978.jpg",
+        "author": "Nikodem Nijaki",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Mortadella_IMGP0978.jpg"
+    },
+    "mushroom-risotto": {
+        "title": "Mushroom Risotto (4790048714).jpg",
+        "author": "Katrin Gilger",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Mushroom_Risotto_(4790048714).jpg"
+    },
+    "nasi-goreng": {
+        "title": "Nasi Goreng Kampung.jpg",
+        "author": "Supardisahabu",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Nasi_Goreng_Kampung.jpg"
+    },
+    "pad-kra-pao": {
+        "title": "Siam Garden Phat kaphrao ac.jpg",
+        "author": "Asturio Cantabrio",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Siam_Garden_Phat_kaphrao_ac.jpg"
+    },
+    "pastrami-deli-sub": {
+        "title": "Carnegie pastrami sandwich.jpg",
+        "author": "star5112",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Carnegie_pastrami_sandwich.jpg"
+    },
+    "pepperoni-pizza": {
+        "title": "All Good pizza (38501728345).jpg",
+        "author": "Dale Cruse from San Francisco, CA, USA",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:All_Good_pizza_(38501728345).jpg"
+    },
+    "pesto-gnocchi": {
+        "title": "Gnocchi al pesto - homemade.jpg",
+        "author": "Fuerteadventours",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Gnocchi_al_pesto_-_homemade.jpg"
+    },
+    "piri-piri-chicken": {
+        "title": "2018-02-03 Chicken Piri-Piri, Albufeira (1).JPG",
+        "author": "Kolforn (Kolforn)\nI'd appreciate if you could mail me (Kolforn@gmail.com) if you want to use this picture out of the Wikimedia project scope.\n\n\n\n This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license.\nYou are free:\nto share \u2013 to copy, distribute and transmit the work\nto remix \u2013 to adapt the work\nUnder the following conditions:\nattribution \u2013 You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nshare alike \u2013 If you remix, transform, or build upon the material, you must distribute your contributions under the same or compatible license as the original.https://creativecommons.org/licenses/by-sa/4.0CC BY-SA 4.0 Creative Commons Attribution-Share Alike 4.0 truetrue",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:2018-02-03_Chicken_Piri-Piri,_Albufeira_(1).JPG"
+    },
+    "ploughmans-lunch": {
+        "title": "Covington Tea Ploughmans Lunch.jpg",
+        "author": "Infrogmation of New Orleans",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Covington_Tea_Ploughmans_Lunch.jpg"
+    },
+    "pork-belly-bao": {
+        "title": "Gua Bao VLC - 2.jpeg",
+        "author": "Coentor",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Gua_Bao_VLC_-_2.jpeg"
+    },
+    "pork-dumplings": {
+        "title": "Pork and vegetable dumplings - Massachusetts.jpg",
+        "author": "Daderot",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pork_and_vegetable_dumplings_-_Massachusetts.jpg"
+    },
+    "prawn-garlic-spaghetti": {
+        "title": "Liat Portal for Foodie Disorder - Shrimp and Spinach Spaghetti with Turmeric.jpg",
+        "author": "HaJunkiyada",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Shrimp_and_Spinach_Spaghetti_with_Turmeric.jpg"
+    },
+    "prawn-laksa": {
+        "title": "Curry Laksa - Laksa King (2597729514).jpg",
+        "author": "Alpha from Melbourne, Australia",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Curry_Laksa_-_Laksa_King_(2597729514).jpg"
+    },
+    "prawn-paella": {
+        "title": "Seafood paella, Brisbane, 12.2023.jpg",
+        "author": "Kgbo",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Seafood_paella,_Brisbane,_12.2023.jpg"
+    },
+    "prawn-summer-rolls": {
+        "title": "G\u1ecfi cu\u1ed1n at a Vietnamese-style restaurant in Beijing (20180103175625).jpg",
+        "author": "N509FZ",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:G%E1%BB%8Fi_cu%E1%BB%91n_at_a_Vietnamese-style_restaurant_in_Beijing_(20180103175625).jpg"
+    },
+    "pumpkin-soup": {
+        "title": "Autumn Soup (Unsplash) cropped.jpg",
+        "author": "Cala cala_maffia",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Autumn_Soup_(Unsplash)_cropped.jpg"
+    },
+    "roast-chicken-club": {
+        "title": "City Centre Club Sandwich for room service at Holiday Inn Qingdao City Centre (20191004082448).jpg",
+        "author": "N509FZ",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:City_Centre_Club_Sandwich_for_room_service_at_Holiday_Inn_Qingdao_City_Centre_(20191004082448).jpg"
+    },
+    "salmon-sushi-platter": {
+        "title": "Sushi platter.jpg",
+        "author": "chidorian from Japan",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Sushi_platter.jpg"
+    },
+    "salmon-teriyaki-soba": {
+        "title": "Ikura oroshi soba (24404743382).jpg",
+        "author": "T.Tseng",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Ikura_oroshi_soba_(24404743382).jpg"
+    },
+    "sausage-traybake": {
+        "title": "DFC 1025 A plate of grilled sausage skewers with roasted vegetables golden fries and a side of coleslaw with dipping sauce.jpg",
+        "author": "PattayaPatrol",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:DFC_1025_A_plate_of_grilled_sausage_skewers_with_roasted_vegetables_golden_fries_and_a_side_of_coleslaw_with_dipping_sauce.jpg"
+    },
+    "shakshuka-flatbread": {
+        "title": "Shakshuka by Calliopejen1.jpg",
+        "author": "Calliopejen1",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Shakshuka_by_Calliopejen1.jpg"
+    },
+    "smoked-salmon-bagel": {
+        "title": "Bagel and salmon.jpg",
+        "author": "FranHogan",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bagel_and_salmon.jpg"
+    },
+    "spanakopita": {
+        "title": "Spanikopita Greek dish.jpg",
+        "author": "Tanya Bakogiannis",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Spanikopita_Greek_dish.jpg"
+    },
+    "spicy-tuna-rolls": {
+        "title": "Tuna avocado sushi maki roll (3185430313).jpg",
+        "author": "Geoff Peters from Vancouver, BC, Canada",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Tuna_avocado_sushi_maki_roll_(3185430313).jpg"
+    },
+    "steak-frites": {
+        "title": "Reel and Brand - September 2021 - Sarah Stierch 05.jpg",
+        "author": "Missvain",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Reel_and_Brand_-_September_2021_-_Sarah_Stierch_05.jpg"
+    },
+    "sweet-and-sour-pork": {
+        "title": "Sweet-and-sour pork.jpg",
+        "author": "unknown",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Sweet-and-sour_pork.jpg"
+    },
+    "tarka-dal": {
+        "title": "Dal Chana Tarka.JPG",
+        "author": "Miansari66",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Dal_Chana_Tarka.JPG"
+    },
+    "teriyaki-chicken-donburi": {
+        "title": "Bowl of Teriyaki chicken and beef YakinikuCNE.jpg",
+        "author": "CNEcija12345",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bowl_of_Teriyaki_chicken_and_beef_YakinikuCNE.jpg"
+    },
+    "thai-green-curry": {
+        "title": "Thai green chicken curry and roti.jpg",
+        "author": "Takeaway",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Thai_green_chicken_curry_and_roti.jpg"
+    },
+    "tofu-red-curry": {
+        "title": "Red curry with tofu, egg fried rice - Little Thai 2024-07-21.jpg",
+        "author": "Andy Li",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Red_curry_with_tofu,_egg_fried_rice_-_Little_Thai_2024-07-21.jpg"
+    },
+    "tom-yum-prawn-soup": {
+        "title": "Tom yum goong at Thai Orchid Villa Kamppi.jpg",
+        "author": "JIP",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Tom_yum_goong_at_Thai_Orchid_Villa_Kamppi.jpg"
+    },
+    "tonkotsu-ramen": {
+        "title": "Tonkotsu Creamy Ramen with Pork belly - Stir Fry by CK.jpg",
+        "author": "Andy Li",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Tonkotsu_Creamy_Ramen_with_Pork_belly_-_Stir_Fry_by_CK.jpg"
+    },
+    "truffle-mac-cheese": {
+        "title": "Original Mac n Cheese .jpg",
+        "author": "Texasfoodgawker",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Original_Mac_n_Cheese_.jpg"
+    },
+    "tuna-nicoise-salad": {
+        "title": "Salade nicoise.jpg",
+        "author": "Canterel",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Salade_nicoise.jpg"
+    },
+    "veggie-chilli": {
+        "title": "Bowl of chili.jpg",
+        "author": "Carstor",
+        "license": "CC BY-SA 2.5",
+        "source": "https://commons.wikimedia.org/wiki/File:Bowl_of_chili.jpg"
+    },
+    "vietnamese-noodle-salad": {
+        "title": "Bun thit nuong.jpg",
+        "author": "L\u01b0u Ly",
+        "license": "Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Bun_thit_nuong.jpg"
+    }
+}

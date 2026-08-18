@@ -1,0 +1,109 @@
+@import "tailwindcss";
+@import "@fontsource-variable/bricolage-grotesque";
+
+@theme {
+    /* appetite palette — the 6 named tokens (§12) */
+    --color-tomato: #E23D28;        /* brand, primary CTA, YUM */
+    --color-miso: #EBA937;          /* OMG, celebration, highlights */
+    --color-aubergine: #46204E;     /* card back, display ink, theme colour */
+    --color-char: #241E26;          /* body ink, NOPE stamp, dark surfaces */
+    --color-oat: #F4EEE3;           /* app background */
+    --color-cream-card: #EDE7DD;    /* card face — identical to the image-pipeline backdrop */
+
+    --font-display: "Bricolage Grotesque Variable", ui-rounded, system-ui, sans-serif;
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+    --radius-card: 1.5rem;
+}
+
+html {
+    font-size: 16px;
+    font-family: var(--font-body);
+    background: var(--color-oat);
+    color: var(--color-char);
+}
+
+html,
+body {
+    overscroll-behavior: none;
+    min-height: 100%;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--color-tomato);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+button {
+    touch-action: manipulation;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.swipe-surface {
+    touch-action: pinch-zoom;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+@keyframes tindish-pop-in {
+    from { transform: scale(0.96); opacity: 0.4; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes tindish-fan-in {
+    from { transform: translateY(24px) rotate(var(--fan-rot, 0deg)) scale(0.92); opacity: 0; }
+    to { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+}
+
+@keyframes tindish-spring {
+    0% { transform: scale(0.9); }
+    60% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes tindish-burst {
+    0% { transform: translate(0, 0) scale(0.6); opacity: 1; }
+    100% { transform: translate(var(--burst-x, 0), var(--burst-y, -80px)) scale(1.2); opacity: 0; }
+}
+
+@keyframes tindish-sheen {
+    0% { transform: translateX(-160%) rotate(18deg); }
+    100% { transform: translateX(220%) rotate(18deg); }
+}
+
+@keyframes tindish-shimmer {
+    0% { opacity: 0.55; }
+    50% { opacity: 0.9; }
+    100% { opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tindish-sheen {
+        display: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

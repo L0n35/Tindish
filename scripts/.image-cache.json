@@ -1,0 +1,390 @@
+{
+    "baja-fish-tacos": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "3dcf39a8488bdfc657a345da167f00c0c6185311f9ed70e96925659c770847ad"
+    },
+    "banh-xeo": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "1bd26618c16180bb83e7d2d1db8c780f0b35a88db13fc6432c12d92d1c0ed825"
+    },
+    "beef-birria-tacos": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "945f0b8243afe2ec64f44ba516ff5802c6239d42b4677575680a34f3030398b9"
+    },
+    "beef-bulgogi-bowl": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "7d26cec4316a4f40918468ec266c0f49ee6f7cdf6a2941bc7a24ffd31b35e372"
+    },
+    "beef-burrito-bowl": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "b9de9f576df239b6fafe78e95041cf26ddf21f49091fcca7aa3a0daf2c449e6a"
+    },
+    "beef-lasagne": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "5ef184d8fc0f066b6b0dae86d3905de772114b30d980e6c0350acd27184c4d07"
+    },
+    "beef-massaman-curry": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "e9c757d00d1d991adbb2fbfd94518b5e179dfdc2d59b580c40d685b5032f9a4d"
+    },
+    "beef-pho": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "403dfc0737ecdb03cc370076d3571be092c1eb749dd7bcb9701f83dde2c0a200"
+    },
+    "beef-ragu-tagliatelle": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "5b93a6f22d8a9eaa44f6cdf842bb64f8d8cb8940d6b16b1c35f7a2433dd2328c"
+    },
+    "bibimbap": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "f4eb0ef0fc826f5b19fcb22cc98fe853b2f560a441a1c7812ca24a86013cd1fc"
+    },
+    "buffalo-wings": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "4d52409570f55cde01be092d330c620c06db19701dea8992dcaa968124603da2"
+    },
+    "burrata-tomato-plate": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "4651080938dfdf7390491caea8b598e6a71f326952c41352a6a6ef1b226a04a6"
+    },
+    "butter-chicken-naan": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "562abe1e3648bf9ef599f2bfd6995a4771b78739919dde4c0eeba23e064aee05"
+    },
+    "caprese-ciabatta": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "b229b05ed4b55136a87ee903ee640c2cc8a97f35a9715768ac09d4229969e202"
+    },
+    "char-siu-rice": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "de3832604432115ef7c584db7916543c4605db7d1291320663f821ff48d893b6"
+    },
+    "chicken-biryani": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "18bba4d12ab2e2e42e96730d7e05212fb05fa7a6f5816d9044e3032c5c529d4e"
+    },
+    "chicken-burrito": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "0e893d5e80d2bdff9aee235d8a4f227d1eb1078b7647dba1dbc0bd56f6faaafc"
+    },
+    "chicken-caesar-salad": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "e6683c013d6484e6df6ce599c5eefe24fceb00f00635c5cf9bf42215e8219a17"
+    },
+    "chicken-fajitas": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "6f4faed02792c7323ad41a88d0fe8f43109f81542de04161f22ac53c460999d6"
+    },
+    "chicken-fried-rice": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "588a8558b1ba35db5cf97f476df5d8e64a3f1a398639613a14d09f8990650fdf"
+    },
+    "chicken-gyros": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "d3a89ce4e055118180dbf1d34685bc17f31aa4838aad8455c8ac97380e55ff04"
+    },
+    "chicken-katsu-curry": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "8a57f42be7018b52a6c4e35490278f1c3e5ac8c82804f5e3610670f50694cc8f"
+    },
+    "chicken-pad-thai": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "7eb4ac10988f27e508744ebec007d92dbc9a3a96105c7ce7f472aa2c8cdffd25"
+    },
+    "chicken-pot-pie": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "21f2dda533853c15e47adc5f5f2f5e7f9f2f81e7c781fc636d77514f45cb68ab"
+    },
+    "chicken-quinoa-tabbouleh": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "552f6127f17b00f83b2a8a2a26244fd8a2e8e50db1cd961f6fcd4cc8834815fd"
+    },
+    "chicken-satay-skewers": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "9ffa36c0def12f5a2f2c48f5f05f017df85e52707749d9f85adb9931b4405bab"
+    },
+    "chicken-schnitzel": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "ff49d847c4ac7b685aadc67ad012734266572b92f45acd04a1dc1209efbd9c0f"
+    },
+    "chicken-shawarma-plate": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "94e8d0c28fc2a42be74fc9baa8c708751d5b0fea3e1458b4b7c61e6889d0e2af"
+    },
+    "chicken-tikka-masala": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "e72b7135fbfe01bda61d0b0f9d2afb43c104824b49a9bcfecef06094f16d0444"
+    },
+    "chicken-veg-stir-fry": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "84aeba4454c4f6fbd68540f95247a85dcc514a71b739e6e5c11676a4c41f04b3"
+    },
+    "chirashi-bowl": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "6ee9cb2ce47d7cf3c7020aac63fdc419fbb9a5c31ffdcf7b419a1e2834eb8422"
+    },
+    "courgette-lemon-linguine": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "23532d8fc5d9ee2164dbe695a5efa5a1f16dd8cf3f0199412ad8c3c87298afc6"
+    },
+    "crispy-beef-chow-mein": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "3f735c0f481e9deb77b9d27a7eeab5978ea3e84fabead60e10aad17ba95fa16b"
+    },
+    "crispy-duck-pancakes": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "659ea7ec2eccef4d688405beab80760f4d3e7979216a348e9bd879c3f9eb4cd3"
+    },
+    "double-smash-burger": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "5d702225b995ac9bd9c706abf2eb892a107b1f9424e305c426a5677ae1015a92"
+    },
+    "falafel-buddha-bowl": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "503be94cd0e3345178b838c1d50e79d3f28b3cf70449e56708d84178e0fa4c67"
+    },
+    "falafel-wrap": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "f915c3bc2b0da9a99022344af21c1d08250c592d5e2a9c69c3cb9f26d8a2e827"
+    },
+    "fish-and-chips": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "870da95852cb1b5acd2c9fcce1f53b15ed44b70cede8a25922c6a8f3f89df2ba"
+    },
+    "fish-ceviche": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "2447af40d6f71a87bc5861f0aeb8dfba8e0464721d03005cc6fc1de2920cc99b"
+    },
+    "french-onion-soup": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "a55cdc73c477867e4caaa620ad2b3a5374583c1c136417e5f6dc42c66c4dce8a"
+    },
+    "gado-gado": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "e3fded5776294e618884dda26690ccfa11727798e1a5b640b448635b41a9745a"
+    },
+    "greek-halloumi-salad": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "c5fe8d51312d6ee4b229be2849ac8d7ba74a6a531b3c6a2f880c93c7ad05677c"
+    },
+    "halloumi-grain-bowl": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "086db8271052beb2dac6193dabec8df45172805f060606a8df157d9e79dd5725"
+    },
+    "herby-chicken-couscous": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "23fcf48133b730a3352454384ffcdcab41d7c1b41d33b7300d702878aa3f0c8e"
+    },
+    "honey-soy-chicken-traybake": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "44d487d344bc8cb8c3119cec155205ec9b139c1ce21f443e153d86ad994f2907"
+    },
+    "jerk-chicken-rice": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "d11803ad0648a90db747d0ee9586eb09e6a3802973597e5d60c977407fa06135"
+    },
+    "katsu-sando": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "939501b7025c8e0a601a5865a0d8c4545ef5bac792c7b699c743d9d566afb58b"
+    },
+    "korean-fried-chicken": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "42d434d8fcf0e4ea296d8697386a7d70d25ae8974b754f3629a1357c99d9676a"
+    },
+    "lamb-doner-kebab": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "12866340a8efe062564339e4fba3c5dee56971f59e6a9f9a73cf24b32d798d44"
+    },
+    "lamb-kofta-flatbread": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "2116c27664ec279f75f9006b9e8b8b20b20f296ad83b58d95675bcb768ac68c0"
+    },
+    "lamb-pide": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "e56f08d2e6dee6fe6cf2154772daa86fd6ed398374f6a7b5ce17ae2af2e3f276"
+    },
+    "lamb-rogan-josh": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "a3a9334e83d1f88e2016663169ccdaafb554b35dcc9775bf9c89483872166f28"
+    },
+    "lamb-souvalaki": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "e68338baf6c0800c36e9d6ab96d619898290eb2932e943ad9dae6d85cd353770"
+    },
+    "lamb-souvlaki": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "4c68528b89dfe5750b881eabd10d2e248dcc95c72de14159539564f5b70d7640"
+    },
+    "mapo-tofu": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "46d6182bffa805cae127e76c47a6bfba61a3f56168c9fa58127e49424feaba3d"
+    },
+    "margherita-pizza": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "378b987c07e88308dd5aff72a14b83223534ef2b75c183f83c1d5167f9ab5947"
+    },
+    "mezze-plate": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "b27fb17a6e89a0933f5957ee0994bca93bf3d787a639a808316547329fcd730e"
+    },
+    "miso-salmon-greens": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "4c3b74bba750ddc817314064504d37728a36f509b08a7d739c97fa6f1819cec5"
+    },
+    "mortadella-focaccia": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "a80bbc2d171b458d38b85d5b28b169e0976529b9e557a51951537619a39d618a"
+    },
+    "mushroom-risotto": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "b4c5904717942fe8b783280c906da9db66c2dd59e9df8625f3cb801672484f5b"
+    },
+    "nasi-goreng": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "cbfd1dde934007d77ff8721d0cebe9365c0ab59a47f63578860384eaa43c6a9f"
+    },
+    "pad-kra-pao": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "8bb0a9a9cc5eec659f436e8ab6501c49ae628c3238909a560a72b033faf1a09c"
+    },
+    "pad-see-ew": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "b1ff14253ff668abff8ff2f291bb72b6da483e1da41e06f9dd46f4c9a7d0cd19"
+    },
+    "pastrami-deli-sub": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "97ced52b430dd46bf125763ae92e07634c67cdb0015b70ef413c4520e1004150"
+    },
+    "pepperoni-pizza": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "43af872ea42efe60c1837a8271343f12cda5beb6946c762e9428119f8f9b088d"
+    },
+    "pesto-gnocchi": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "3edffad63f2f50a1c593b3909d69854ddfcd0702ea2e757c15e2d2dae30f5428"
+    },
+    "piri-piri-chicken": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "be7ad6115d0263f304de6b1addf1f04094f677360576861e6b387919411ce117"
+    },
+    "ploughmans-lunch": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "e6a8174026bbc4e36cd734a487c20a3dcea558115a6fd711e802ca1701fbfbdb"
+    },
+    "pork-banh-mi": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "42f8a49df83db2584c0b43ab6f968cc252191c522485256c5fa6d443938e346f"
+    },
+    "pork-belly-bao": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "a773d423b5afb88cccbbb11212c94cd465061e3fd67f96de207bc489c1573bd2"
+    },
+    "pork-dumplings": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "02b062ad2ac5dda6ffe965f88e985bfe619162273a1797c19bef546b7a410383"
+    },
+    "prawn-garlic-spaghetti": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "caba120873bfd61876aeecb07230f263faa182785bc9ac45126bbcfc0c92bd15"
+    },
+    "prawn-laksa": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "00edcaac7a1167a548a35e169ff1e4605245549ca9f9f42d375eaf1e63c6dba6"
+    },
+    "prawn-paella": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "a5901ff3a0b39ccd95fa89504628c012849c5a81b428239a64d8fa12856ba725"
+    },
+    "prawn-summer-rolls": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "2028eccc9197585872fd50509146e9a4b7157f1232d19dbe30d310a8f80e9886"
+    },
+    "pumpkin-soup": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "48900b64f4fc61447bc13838dc5e10ffd87cb7a507ee60162c22d4215105cfd2"
+    },
+    "roast-chicken-club": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "697e27ce857859286126f94d1ff16b7c78d82b2be82e112f2fdfc26072671628"
+    },
+    "salmon-poke-bowl": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "d8a3ae864dcd7e9f1e0fbb49e9ca156ac80254ada39965d92d18eb9bfcbf28a9"
+    },
+    "salmon-sushi-platter": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "9540c3deff43dfe048692dceefc4b2e82fa0b9c4086c77309eb6a09a67e0bae4"
+    },
+    "salmon-teriyaki-soba": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "3be12bc6ac568f40192d432e9cae9fb353549c726088f6239b3e4bc87109dc07"
+    },
+    "sausage-traybake": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "733cfe3bebafac427e2bf8acd998b83ed7fcbd3cdf2b149244c1b4b083a3920c"
+    },
+    "shakshuka-flatbread": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "830c4ffa2c3c7376a88fcf79362ae130d7fcb47e5512391458551fc5c2017d19"
+    },
+    "smoked-salmon-bagel": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "9ed39d69eda22a4a125fa86f766b46ba5b3611fd5442fb51804c79bceb7da81b"
+    },
+    "spanakopita": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "e984dea928e22236b6a87e52c5e14b63dc9785cc48fb240b96a461e8e4b19b2f"
+    },
+    "spicy-tuna-rolls": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "b154d894e5e8e1d2a25d412a8fdeb51453ea32ccfd14fd1e9c63c6ad4ed347f4"
+    },
+    "steak-frites": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "68de9dfb309913696e6e070fea58aa6dede41aae96b6a7f88d15935f1380ead9"
+    },
+    "sweet-and-sour-pork": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "11801c3afeb2c0de3851fb9d157eb76649926f7fb66dac3e121bf0d7f899ddb0"
+    },
+    "tarka-dal": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "960cd686811d2896c351bab53085f88df3e61e25a758d9ea2a59cdda9fc72982"
+    },
+    "teriyaki-chicken-donburi": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "ca7d459677314b696f79f8eca6203e7e6e3f07fc355b89a618544d93083ee612"
+    },
+    "thai-green-curry": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "c18256d8f9485d92dbd12d520d347653c8a2e24cb5b694eed59b4e5c3bbd166f"
+    },
+    "tofu-red-curry": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "70f3e68d8edcd69f20e32738cd2c5137995b05dbd7fb4bdfa2c75b504b2c8d99"
+    },
+    "tom-yum-prawn-soup": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "6296dabc9f71bbf530c102495106852ded0e75199a9c24cae2def0413e322415"
+    },
+    "tonkotsu-ramen": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "12743e9fa456fb1889155278a37fa48cb967d1d86107785625645aeca132153e"
+    },
+    "truffle-mac-cheese": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "9d2f7cebee6a8672ebddd6715eff49e368d3195f78a23772ca09477bdfbded10"
+    },
+    "tuna-nicoise-salad": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "40800c0d94fa946264ad43261486a06fb9675d99376b08b2e2fae653c1a6c521"
+    },
+    "veggie-chilli": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "9c7f9b4bdce1f7fc7b2878feec88e1140f311e3d9eb0f77f3eb1aae436259449"
+    },
+    "vietnamese-noodle-salad": {
+        "config": "899f37bd0089f1d1489fee1a14b107168a377d95e851faa60fdb6e7f6935b420",
+        "input": "99067a13e243fa28d72579589bb2c2cc157e620f1ff7189a518fd7c8e6e72b33"
+    }
+}

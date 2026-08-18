@@ -1,0 +1,10 @@
+node_modules/
+.nuxt/
+.output/
+.data/
+.env
+*.local
+test-results/
+playwright-report/
+raw_images/*
+!raw_images/.gitkeep

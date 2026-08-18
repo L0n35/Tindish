@@ -1,0 +1,6 @@
+# Image pipeline dependencies (python 3.12). Install once before processing photos:
+#   pip install -r scripts/requirements.txt
+rembg==2.0.80
+onnxruntime==1.28.0
+Pillow==12.3.0
+numpy==2.5.2
