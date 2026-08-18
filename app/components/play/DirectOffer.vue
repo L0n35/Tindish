@@ -18,7 +18,7 @@ useFocusHeading(heading);
         <h2 ref="heading" tabindex="-1" class="mb-4 mt-2 font-display text-2xl font-bold">
             This one caught your eye. Run with it?
         </h2>
-        <div class="mx-auto w-full max-w-[300px]">
+        <div class="mx-auto w-full max-w-[300px]" style="--dish-art-max: calc(100dvh - 23rem)">
             <CardSwipeCard :dish="dish" />
         </div>
         <div class="mt-auto flex flex-col gap-3 pt-6 pb-[env(safe-area-inset-bottom)]">

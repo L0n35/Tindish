@@ -4,8 +4,11 @@
 </script>
 
 <template>
+    <!-- No position class on the root: the caller must position it (SwipeStage passes
+         `absolute`); a `relative` here would win the Tailwind order and put the back
+         into normal flow, pushing the real card down. -->
     <div
-        class="relative overflow-hidden rounded-[var(--radius-card)] bg-aubergine shadow-lg ring-1 ring-char/20"
+        class="overflow-hidden rounded-[var(--radius-card)] bg-aubergine shadow-lg ring-1 ring-char/20"
         aria-hidden="true"
     >
         <svg class="absolute inset-0 h-full w-full opacity-[0.14]" aria-hidden="true">

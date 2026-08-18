@@ -19,9 +19,13 @@ watch(() => props.dishId, () => { loaded.value = false; });
 </script>
 
 <template>
+    <!-- No width class on the root: callers pass their own (w-28 thumbnails etc.), and a
+         w-full here would win the Tailwind order and blow those up to full width. With
+         width auto it still fills its container. --dish-art-max lets a screen cap the
+         square so tall layouts never overflow the viewport. -->
     <div
-        class="relative w-full overflow-hidden"
-        style="aspect-ratio: 1 / 1"
+        class="relative overflow-hidden"
+        style="aspect-ratio: 1 / 1; max-width: var(--dish-art-max, none)"
         :style="src === null ? { background: gradient } : { background: 'var(--color-cream-card)' }"
     >
         <template v-if="src !== null">

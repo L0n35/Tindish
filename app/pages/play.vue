@@ -214,7 +214,7 @@ function goHome(): void {
 </script>
 
 <template>
-    <main class="flex min-h-dvh flex-1 flex-col pt-2">
+    <main class="flex min-h-0 flex-1 flex-col pt-2">
         <template v-if="!ready || state === null">
             <div class="flex flex-1 items-center justify-center text-char/70" data-testid="restoring">
                 Setting the table…
@@ -222,7 +222,9 @@ function goHome(): void {
         </template>
 
         <template v-else-if="state.phase === 'swiping' && currentDish !== null">
-            <div class="flex flex-1 flex-col px-4 pb-4">
+            <!-- Cap the card art so pips + card + reactions always fit one viewport;
+                 18rem ≈ everything on this screen that isn't the square image. -->
+            <div class="flex min-h-0 flex-1 flex-col px-4 pb-4" style="--dish-art-max: calc(100dvh - 18rem)">
                 <PlayPositivePips :positives="state.positives.length" :cards-dealt="state.cardsDealt" />
                 <div class="relative mt-3 flex-1">
                     <PlaySwipeStage

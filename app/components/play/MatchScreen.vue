@@ -40,7 +40,10 @@ const burst = computed(() => Array.from({ length: 12 }, (_, i) => ({
                 >{{ b.emoji }}</span>
             </div>
         </div>
-        <div class="mx-auto mt-4 w-full max-w-[300px]" style="animation: tindish-spring 500ms ease-out">
+        <div
+            class="mx-auto mt-4 w-full max-w-[300px]"
+            style="animation: tindish-spring 500ms ease-out; --dish-art-max: calc(100dvh - 25rem)"
+        >
             <CardSwipeCard :dish="champion" />
         </div>
         <!-- Keyed so promoting the runner-up crossfades to its new line. -->
