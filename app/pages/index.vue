@@ -75,7 +75,7 @@ function dealMeIn(): void {
                 class="min-h-14 w-full rounded-full bg-tomato py-4 font-display text-xl font-bold text-white shadow-lg active:scale-[0.98]"
                 @click="dealMeIn"
             >
-                Deal me in
+                Find me a match
             </button>
         </div>
     </main>

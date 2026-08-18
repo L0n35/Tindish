@@ -44,7 +44,7 @@ useFocusHeading(heading);
                 class="mt-6 min-h-12 w-full rounded-full bg-tomato py-3.5 font-display text-xl font-bold text-white shadow-lg active:scale-[0.98]"
                 @click="$emit('restart')"
             >
-                Deal me in again
+                Find me another match
             </button>
         </template>
         <div class="mt-auto pt-6 pb-[env(safe-area-inset-bottom)]">
