@@ -13,10 +13,11 @@ import { openMetrics, projectMetrics } from '#shared/session/metricsProjection';
 import { loadVersioned, saveVersioned, safeRemove } from '#shared/persistence/migrate';
 import {
     STORAGE_KEYS, activeStoreSchema, historyStoreSchema, metricsStoreSchema, prefsStoreSchema,
+    historyMigrations, prefsMigrations,
 } from '#shared/persistence/schemas';
 import type { HistoryRecord, MetricsRecord } from '#shared/types/records';
 import type {
-    DealerContext, EffortFilter, SessionEnvelope, SessionEvent, SessionState,
+    DealerContext, SessionEnvelope, SessionEvent, SessionState,
 } from '#shared/types/session';
 import type { Mode } from '#shared/types/dish';
 import { appStorage } from '~/utils/storage';
@@ -54,7 +55,7 @@ function persistMetricsRecord(record: MetricsRecord): void {
 }
 
 function loadHistory(): HistoryRecord[] {
-    return loadVersioned(storage(), STORAGE_KEYS.history, historyStoreSchema)?.records ?? [];
+    return loadVersioned(storage(), STORAGE_KEYS.history, historyStoreSchema, historyMigrations)?.records ?? [];
 }
 
 function persistHistory(records: HistoryRecord[]): void {
@@ -152,7 +153,7 @@ export function useSessionStore() {
         }
     }
 
-    function startNew(options: { seed: number; mode: Mode; effortFilter: EffortFilter }): void {
+    function startNew(options: { seed: number; mode: Mode }): void {
         const existing = loadVersioned(storage(), STORAGE_KEYS.active, activeStoreSchema);
         if (existing !== null) discardActive('replaced');
         const config = {
@@ -161,7 +162,6 @@ export function useSessionStore() {
                 : `session-${Date.now()}-${options.seed}`,
             seed: options.seed >>> 0,
             mode: options.mode,
-            effortFilter: options.mode === 'cooking' ? options.effortFilter : 'noLimit' as EffortFilter,
             dealerContext: dealerContextFromHistory(options.mode),
             startedAt: Date.now(),
         };
@@ -246,14 +246,12 @@ export function useSessionStore() {
             sessionId: env.sessionId,
             seed: env.seed,
             mode: env.mode,
-            effortFilter: env.effortFilter,
             dealerContext: env.dealerContext,
             startedAt: env.startedAt,
         };
     }
 
-    // "Sorted": save first (§6.4) — the history record exists before any narration patch.
-    function saveAndFinish(weatherLine?: string): void {
+    function saveAndFinish(): void {
         const s = state.value;
         if (s === null || envelope === null || s.phase !== 'match' || s.championId === null) return;
         if (!dispatch({ type: 'sorted' })) return;
@@ -265,7 +263,6 @@ export function useSessionStore() {
             tuningVersion: envelope.tuningVersion,
             events: [...envelope.events],
             mode: envelope.mode,
-            effortFilter: envelope.effortFilter,
             dealerContext: envelope.dealerContext,
             startedAt: envelope.startedAt,
             shownIds: [...state.value!.shownIds],
@@ -274,7 +271,6 @@ export function useSessionStore() {
             source: state.value!.crownSource!,
             usedRunnerUp: state.value!.usedRunnerUp,
             ts: Date.now(),
-            ...(weatherLine !== undefined ? { weather: { line: weatherLine } } : {}),
         };
         persistHistory([record, ...loadHistory()]);
         safeRemove(storage(), STORAGE_KEYS.active);
@@ -298,15 +294,6 @@ export function useSessionStore() {
         metrics = null;
     }
 
-    function patchHistoryWeather(sessionId: string, weatherLine: string): void {
-        const records = loadHistory();
-        const record = records.find((r) => r.sessionId === sessionId);
-        if (record && record.weather === undefined) {
-            record.weather = { line: weatherLine };
-            persistHistory(records);
-        }
-    }
-
     return {
         ctx,
         shell,
@@ -318,7 +305,6 @@ export function useSessionStore() {
         saveAndFinish,
         endSession,
         leaveToHome,
-        patchHistoryWeather,
         undoDisabled: computed(() =>
             state.value === null
             || !canUndoSelector(state.value)
@@ -341,9 +327,9 @@ export function useSessionStore() {
             },
         },
         prefs: {
-            load: () => loadVersioned(storage(), STORAGE_KEYS.prefs, prefsStoreSchema),
-            save(mode: Mode, effortFilter: EffortFilter) {
-                saveVersioned(storage(), STORAGE_KEYS.prefs, { v: 1, mode, effortFilter });
+            load: () => loadVersioned(storage(), STORAGE_KEYS.prefs, prefsStoreSchema, prefsMigrations),
+            save(mode: Mode) {
+                saveVersioned(storage(), STORAGE_KEYS.prefs, { v: 1, mode });
             },
         },
     };

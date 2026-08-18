@@ -19,7 +19,6 @@ export interface Tuning {
     STREAK_THRESHOLD: number;
     TARGET_POSITIVES: number;
     OMG_CAP: number;
-    MAX_SESSION_ACTIONS: number;
     EVENT_LOG_MAX: number;
     UNDO_LOG_CEILING: number;
     CHAMPION_24H_PENALTY: number;
@@ -69,10 +68,6 @@ export const defaultTuning: Tuning = {
 
     // Superlikes (OMG) per session. probePick neither consumes nor requires one (§5.4).
     OMG_CAP: 3,
-
-    // Narrate-boundary cap on the reactions array. Real worst case is 20
-    // (18 dealt cards + 2 probe picks); 24 is deliberate headroom (§7).
-    MAX_SESSION_ACTIONS: 24,
 
     // Bound on the persisted event log (§3.2). Never truncated — appends past this refuse
     // the whole dispatch, so a persisted envelope always re-folds to the live state.
@@ -141,7 +136,7 @@ export const swipe = {
     nextCardInMs: 180,
 } as const;
 
-// Reserved RNG decision index for the narration template pick — far above any index a
+// Reserved RNG decision index for the match-line template pick — far above any index a
 // dealer could reach (dealer indices stay below EVENT_LOG_MAX), so replays are stable
 // and template choice never perturbs the deal sequence.
-export const RESERVED_NARRATION_INDEX = 0x7fff_ffff;
+export const RESERVED_TEMPLATE_INDEX = 0x7fff_ffff;

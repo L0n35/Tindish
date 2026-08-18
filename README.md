@@ -6,7 +6,7 @@ A mobile-first web app for one very specific problem: choosing dinner when choos
 hard part. A session reads the mood fast — an adaptive swipe round, a knockout bracket of
 only the dishes she explicitly wanted, and a match screen with her champion. **The dealer
 deals; it never decides.** Only dishes she liked, superliked, or probe-picked can become
-finalists; the AI narrates the result and never picks it. No code path forces a verdict.
+finalists; the match line narrates the result and never picks it. No code path forces a verdict.
 
 Personal project. Two users, no accounts, no database, no recipes.
 
@@ -17,9 +17,8 @@ npm ci
 npm run dev
 ```
 
-That's it — **the app runs fully with no env vars**. Narration uses local template lines
-(you'll see one console note saying so). Add an Anthropic key to upgrade the match-screen
-line to an AI-written one; a bad key degrades silently back to templates.
+That's it — **the app needs no env vars at all**. The match-screen line comes from local
+template copy, rendered instantly and deterministically from session state.
 
 ## Scripts
 
@@ -34,26 +33,10 @@ line to an AI-written one; a bad key degrades silently back to templates.
 
 All four quality gates (`typecheck`, `test`, `test:e2e`, `build`) are part of done.
 
-## Configuration
-
-Copy `.env.example` to `.env`. Everything is optional and **server-only** — nothing here
-ever reaches the browser (the weather coordinates deliberately don't ship to the client).
-
-| Var | Default | Notes |
-|---|---|---|
-| `NUXT_ANTHROPIC_API_KEY` | *(unset)* | Absent → template narration. Invalid → silent fallback. |
-| `NUXT_ANTHROPIC_MODEL` | `claude-sonnet-4-6` | Must support structured outputs (the default does). An older model that rejects them degrades to `{fallback:true}` — the template stands. |
-| `NUXT_WEATHER_LAT` / `NUXT_WEATHER_LON` | London (51.4749, −0.2010) | Decorative weather line via Open-Meteo. |
-
 ## Deploy (Vercel, zero-config)
 
-Push the repo → import in Vercel → set the env vars in the dashboard. Nitro auto-detects
-the Vercel preset; nothing else to configure.
-
-**Stated plainly:** the narrate endpoint's in-memory per-IP limiter (~10/min) is a courtesy
-speed bump only — serverless instances don't share memory, so it cannot be real protection.
-For a public deploy, real protection is platform-level: Vercel Deployment Protection or
-WAF rate limiting. For its intended audience (two people), this is a non-issue.
+Push the repo → import in Vercel. Nitro auto-detects the Vercel preset; there are no env
+vars and nothing else to configure.
 
 ## Tuning guide
 
@@ -72,8 +55,8 @@ same file under `swipe`.
 The starter deck (`shared/data/deck.ts`, 96 dishes) is deliberately generic. **Prune it to
 dishes you'd actually cook or can actually order locally; feasibility beats variety.** The
 balance tests will fail loudly if edits skew the pool — per mode: no cuisine or format over
-20%, every vibe between 15–40%, no vibe temperature-confounded, and the quick cooking pool
-stays sessionable. Run `npm test` after every edit; the failure messages name the violated
+20%, every vibe between 15–40%, no vibe temperature-confounded.
+Run `npm test` after every edit; the failure messages name the violated
 constraint. Engine or reducer semantic changes should bump `ENGINE_VERSION`
 (`shared/engine/version.ts`) so old saved sessions are discarded rather than mis-replayed.
 
@@ -115,16 +98,15 @@ manual stock-photo upgrade path, and licensing notes. Processed card art comes f
   the deal schedule, probe semantics (including the 3-OMGs-then-7-dislikes edge), stop
   rules and the extension table, bracket shapes and seeding, undo integrity, the reducer
   legality matrix, **replay determinism** (every session log re-folds to the identical
-  state), **preview purity/exactness**, persistence resets, the narrate validator, retry
-  policy, and the narration race rules.
+  state), **preview purity/exactness**, persistence resets and legacy-key strip-migrations,
+  and the match-line template copy.
 - **Simulation** — 8 hidden-preference agents (from `hearty` to `refusenik`) drive the real
   reducer through ~4,000 seeded sessions per run. Assertions are correctness invariants
   only: every finalist explicitly positive, every session terminates legitimately, caps
   respected, replay equality. Efficiency is a printed report (`npm run sim`), never a CI
   assertion.
 - **E2E (Playwright, 375×667)** — happy path with a zero-404 network sweep and touch-target
-  checks; probe → fallback in both history variants (asserting history champions never call
-  the narrate API); narrate 500/fallback/success races; a **real pointer drag** measuring
+  checks; probe → fallback in both history variants; a **real pointer drag** measuring
   gesture-time layout shift via `PerformanceObserver` (< 0.01); the OMG-cap bounce; a
   mid-bracket reload restore; and `@axe-core/playwright` WCAG A/AA passes over home,
   swipe, bracket, and match.

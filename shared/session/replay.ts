@@ -18,7 +18,6 @@ export function configFromEnvelope(env: SessionEnvelope): SessionConfig {
         sessionId: env.sessionId,
         seed: env.seed,
         mode: env.mode,
-        effortFilter: env.effortFilter,
         dealerContext: env.dealerContext,
         startedAt: env.startedAt,
     };
@@ -33,7 +32,6 @@ export function envelopeFor(config: SessionConfig, deck: readonly Dish[], tuning
         deckHash: hashDeck(deck),
         tuningVersion: tuning.tuningVersion,
         mode: config.mode,
-        effortFilter: config.effortFilter,
         dealerContext: config.dealerContext,
         startedAt: config.startedAt,
         events: [],

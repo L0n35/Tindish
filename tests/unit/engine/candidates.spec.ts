@@ -9,23 +9,15 @@ const none = new Set<string>();
 
 describe('filterCandidates', () => {
     it('filters by mode', () => {
-        const cooking = filterCandidates(deck, { mode: 'cooking', effortFilter: 'noLimit', excludeIds: none });
+        const cooking = filterCandidates(deck, { mode: 'cooking', excludeIds: none });
         expect(cooking.every((d) => d.modes.includes('cooking'))).toBe(true);
         expect(cooking).toHaveLength(deck.filter((d) => d.modes.includes('cooking')).length);
     });
 
-    it('Quick tonight keeps only effort:quick, and only in cooking mode', () => {
-        const quick = filterCandidates(deck, { mode: 'cooking', effortFilter: 'quick', excludeIds: none });
-        expect(quick.every((d) => d.tags.effort === 'quick')).toBe(true);
-        // Quick filter never applies to takeaway — the full takeaway pool comes back.
-        const takeaway = filterCandidates(deck, { mode: 'takeaway', effortFilter: 'quick', excludeIds: none });
-        expect(takeaway).toHaveLength(deck.filter((d) => d.modes.includes('takeaway')).length);
-    });
-
     it('excludes shown ids and sorts by id', () => {
-        const all = filterCandidates(deck, { mode: 'takeaway', effortFilter: 'noLimit', excludeIds: none });
+        const all = filterCandidates(deck, { mode: 'takeaway', excludeIds: none });
         const excluded = filterCandidates(deck, {
-            mode: 'takeaway', effortFilter: 'noLimit', excludeIds: new Set([all[0]!.id]),
+            mode: 'takeaway', excludeIds: new Set([all[0]!.id]),
         });
         expect(excluded).toHaveLength(all.length - 1);
         expect(excluded.map((d) => d.id)).toEqual([...excluded.map((d) => d.id)].sort());
@@ -72,7 +64,7 @@ describe('soft penalties and the relaxation ladder', () => {
         const survivor = deckById.get('crispy-beef-chow-mein')!;
         const excludeIds = new Set(deck.filter((d) => d.id !== survivor.id).map((d) => d.id));
         const result = resolveCandidates({
-            deck, mode: 'takeaway', effortFilter: 'noLimit',
+            deck, mode: 'takeaway',
             excludeIds, recentDeals: [padThai, padSeeEw], tuning: defaultTuning,
         });
         expect('exhausted' in result).toBe(false);
@@ -85,7 +77,7 @@ describe('soft penalties and the relaxation ladder', () => {
     it('an empty base pool is exhausted (rung 4)', () => {
         const excludeIds = new Set(deck.map((d) => d.id));
         const result = resolveCandidates({
-            deck, mode: 'takeaway', effortFilter: 'noLimit',
+            deck, mode: 'takeaway',
             excludeIds, recentDeals: [], tuning: defaultTuning,
         });
         expect('exhausted' in result).toBe(true);

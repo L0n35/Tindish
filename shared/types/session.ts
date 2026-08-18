@@ -1,7 +1,6 @@
 import type { Mode } from './dish';
 import type { TagStats, Reaction } from '../engine/scoring';
 
-export type EffortFilter = 'quick' | 'noLimit';
 export type SwipeReaction = 'like' | 'dislike' | 'superlike';
 export type CrownSource = 'bracket' | 'direct' | 'history';
 export type DealerMode = 'adaptive' | 'shuffled';
@@ -28,7 +27,6 @@ export interface SessionConfig {
     sessionId: string;
     seed: number;
     mode: Mode;
-    effortFilter: EffortFilter;
     dealerContext: DealerContext;
     startedAt: number;
 }
@@ -53,7 +51,6 @@ export interface SessionEnvelope {
     deckHash: string;
     tuningVersion: number;
     mode: Mode;
-    effortFilter: EffortFilter;
     dealerContext: DealerContext;
     startedAt: number;
     events: SessionEvent[];

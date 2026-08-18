@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import type { Migration } from './migrate';
 
 export const STORAGE_KEYS = {
     active: 'tindish:active:v1',
@@ -8,7 +9,6 @@ export const STORAGE_KEYS = {
 } as const;
 
 const modeSchema = z.enum(['cooking', 'takeaway']);
-const effortFilterSchema = z.enum(['quick', 'noLimit']);
 const crownSourceSchema = z.enum(['bracket', 'direct', 'history']);
 
 export const sessionEventSchema = z.discriminatedUnion('type', [
@@ -38,7 +38,6 @@ export const sessionEnvelopeSchema = z.object({
     deckHash: z.string(),
     tuningVersion: z.number().int(),
     mode: modeSchema,
-    effortFilter: effortFilterSchema,
     dealerContext: dealerContextSchema,
     startedAt: z.number(),
     events: z.array(sessionEventSchema),
@@ -57,7 +56,6 @@ export const historyRecordSchema = z.object({
     tuningVersion: z.number().int(),
     events: z.array(sessionEventSchema),
     mode: modeSchema,
-    effortFilter: effortFilterSchema,
     dealerContext: dealerContextSchema,
     startedAt: z.number(),
     shownIds: z.array(z.string()),
@@ -66,7 +64,6 @@ export const historyRecordSchema = z.object({
     source: crownSourceSchema,
     usedRunnerUp: z.boolean(),
     ts: z.number(),
-    weather: z.object({ line: z.string() }).strict().optional(),
 }).strict();
 
 export const historyStoreSchema = z.object({
@@ -98,10 +95,32 @@ export const metricsStoreSchema = z.object({
 export const prefsStoreSchema = z.object({
     v: z.literal(1),
     mode: modeSchema,
-    effortFilter: effortFilterSchema,
 }).strict();
 
 export type ActiveStore = z.infer<typeof activeStoreSchema>;
 export type HistoryStore = z.infer<typeof historyStoreSchema>;
 export type MetricsStore = z.infer<typeof metricsStoreSchema>;
 export type PrefsStore = z.infer<typeof prefsStoreSchema>;
+
+// v1 stores written before effort filtering and weather narration were removed carry
+// extra keys the strict schemas now reject; these repairs strip them so loadVersioned
+// re-saves the store instead of resetting it. The active-session store is deliberately
+// unmigrated — a stale envelope is discarded by the engine/deck version guards anyway.
+const stripKeys = (value: unknown, keys: string[]): unknown => {
+    if (typeof value !== 'object' || value === null) return value;
+    const rest = { ...(value as Record<string, unknown>) };
+    for (const key of keys) delete rest[key];
+    return rest;
+};
+
+export const historyMigrations: Record<number, Migration> = {
+    1: (parsed) => {
+        const store = parsed as { records?: unknown[] } | null;
+        if (typeof store !== 'object' || store === null || !Array.isArray(store.records)) return parsed;
+        return { ...store, records: store.records.map((r) => stripKeys(r, ['effortFilter', 'weather'])) };
+    },
+};
+
+export const prefsMigrations: Record<number, Migration> = {
+    1: (parsed) => stripKeys(parsed, ['effortFilter']),
+};

@@ -1,23 +1,24 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { deckById } from '#shared/data/deck';
-import { previewNext, historyOffers } from '#shared/session/selectors';
+import { previewNext, historyOffers, topPreferences } from '#shared/session/selectors';
 import { extensionAvailable as extensionAvailableSelector } from '#shared/session/selectors';
-import { defaultTuning } from '#shared/tuning';
+import { defaultTuning, RESERVED_TEMPLATE_INDEX } from '#shared/tuning';
+import { deriveRng } from '#shared/engine/rng';
+import { localNarration } from '#shared/templates/narration';
+import { timeOfDayFromHour } from '#shared/utils/timeOfDay';
 import type { Dish, Mode } from '#shared/types/dish';
-import type { EffortFilter, SwipeReaction } from '#shared/types/session';
+import type { SwipeReaction } from '#shared/types/session';
 
 const store = useSessionStore();
 const route = useRoute();
 const images = useDishImages();
 const { announce } = useLiveAnnouncer();
-const narration = useNarration({ patchHistoryWeather: store.patchHistoryWeather });
 
 const state = store.state;
 const ready = ref(false);
 const bracketStarted = ref(false);
 const omgToast = ref(false);
-const finished = ref(false);
 let omgToastTimer: number | undefined;
 
 onMounted(() => {
@@ -26,11 +27,9 @@ onMounted(() => {
     if (route.query.new === '1') {
         const seed = Number(route.query.seed);
         const mode = (route.query.mode === 'takeaway' ? 'takeaway' : 'cooking') as Mode;
-        const effort = (route.query.effort === 'quick' ? 'quick' : 'noLimit') as EffortFilter;
         store.startNew({
             seed: Number.isInteger(seed) && seed >= 0 ? seed >>> 0 : Math.floor(Math.random() * 0xffffffff),
             mode,
-            effortFilter: effort,
         });
         ready.value = true;
         // Strip ?new=1 so a mid-session reload restores instead of silently starting over —
@@ -41,10 +40,6 @@ onMounted(() => {
     if (store.restoreActive()) {
         ready.value = true;
         if (state.value?.phase === 'bracket') bracketStarted.value = true;
-        // A restored match renders the local template fresh and re-requests once (§6.4).
-        if (state.value?.phase === 'match' && store.sessionId.value !== null) {
-            narration.start(state.value, store.sessionId.value);
-        }
     } else {
         navigateTo('/');
     }
@@ -52,9 +47,6 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
     window.removeEventListener('keydown', onWindowKeydown);
-    // Leaving to home / a new session aborts in-flight narration; a post-Sorted patch
-    // (which never touches the UI) has already been handed to the controller.
-    if (!finished.value) narration.dispose();
 });
 
 // Keyboard parity for keyboard-only users (§9.7/§9.12): page-level so it needs no focus
@@ -99,6 +91,22 @@ const historyChampions = computed<Dish[]>(() => {
 
 const extendAvailable = computed(() =>
     state.value !== null && extensionAvailableSelector(store.ctx, state.value));
+
+// The match line, rendered instantly and deterministically from session state. The rng
+// pick is replay-stable (reserved index, keyed on the runner-up branch), so the same
+// session always narrates the same way; only the time-of-day phrase follows the clock.
+const matchLine = computed<string>(() => {
+    const s = state.value;
+    if (s === null || s.championId === null || s.crownSource === null) return '';
+    const pick = deriveRng(s.config.seed, RESERVED_TEMPLATE_INDEX, s.usedRunnerUp ? 1 : 0)();
+    return localNarration({
+        dishName: deckById.get(s.championId)?.name ?? s.championId,
+        source: s.crownSource,
+        topTags: s.crownSource === 'history' ? [] : topPreferences(s, defaultTuning, 2),
+        timeOfDay: timeOfDayFromHour(new Date().getHours()),
+        pick,
+    });
+});
 
 // Preload the three candidate next cards during idle — correct because previews exactly
 // predict the real next deal (§3.3 / §9.9).
@@ -153,9 +161,6 @@ function pickBracket(winnerId: string): void {
         // The final tap crowns atomically: two log entries, one gesture (§ plan).
         store.dispatch({ type: 'crown', dishId: winnerId, source: 'bracket' });
         announce(`It's a match: ${winnerName}`);
-        if (store.sessionId.value !== null && state.value !== null) {
-            narration.start(state.value, store.sessionId.value);
-        }
     } else {
         announce(`${winnerName} wins the semi-final`);
     }
@@ -166,18 +171,11 @@ function crownDirect(): void {
     if (s === null || s.positives.length !== 1) return;
     store.dispatch({ type: 'crown', dishId: s.positives[0]!, source: 'direct' });
     announce(`It's a match: ${deckById.get(s.positives[0]!)?.name}`);
-    if (store.sessionId.value !== null && state.value !== null) {
-        narration.start(state.value, store.sessionId.value);
-    }
 }
 
 function crownHistory(dishId: string): void {
     store.dispatch({ type: 'crown', dishId, source: 'history' });
     announce(`It's a match: ${deckById.get(dishId)?.name}`);
-    if (store.sessionId.value !== null && state.value !== null) {
-        // History champions never call the narrate API — template only (§6.4/§7).
-        narration.start(state.value, store.sessionId.value);
-    }
 }
 
 function promoteRunnerUp(): void {
@@ -185,15 +183,10 @@ function promoteRunnerUp(): void {
     if (s === null || s.runnerUpId === null || s.usedRunnerUp) return;
     store.dispatch({ type: 'crown', dishId: s.runnerUpId, source: 'bracket' });
     announce(`Champion changed to ${champion.value?.name}`);
-    if (store.sessionId.value !== null && state.value !== null) {
-        narration.promoteRunnerUp(state.value, store.sessionId.value);
-    }
 }
 
 function sorted(): void {
-    narration.sorted();
-    finished.value = true;
-    store.saveAndFinish(narration.weatherLineForSave());
+    store.saveAndFinish();
     store.leaveToHome();
     navigateTo('/');
 }
@@ -210,7 +203,6 @@ function restart(): void {
     store.startNew({
         seed: buffer[0]!,
         mode: (s?.config.mode ?? 'cooking') as Mode,
-        effortFilter: s?.config.effortFilter ?? 'noLimit',
     });
     bracketStarted.value = false;
 }
@@ -316,7 +308,7 @@ function goHome(): void {
                 :champion="champion"
                 :runner-up="runnerUp"
                 :used-runner-up="state.usedRunnerUp"
-                :line="narration.line.value"
+                :line="matchLine"
                 @sorted="sorted"
                 @runner-up="promoteRunnerUp"
             />

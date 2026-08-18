@@ -5,12 +5,6 @@ export default defineNuxtConfig({
     css: ['~/assets/css/main.css'],
     vite: { plugins: [tailwindcss()] },
     typescript: { strict: true },
-    runtimeConfig: {
-        anthropicApiKey: '',
-        anthropicModel: 'claude-sonnet-4-6',
-        weatherLat: '51.4749',
-        weatherLon: '-0.2010',
-    },
     routeRules: {
         '/play': { ssr: false },
         '/debug': { ssr: false },

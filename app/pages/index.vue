@@ -3,15 +3,12 @@ import { computed, onMounted, ref } from 'vue';
 import { deckById } from '#shared/data/deck';
 import { timeOfDayFromHour } from '#shared/utils/timeOfDay';
 import type { Mode } from '#shared/types/dish';
-import type { EffortFilter } from '#shared/types/session';
 import type { HistoryRecord } from '#shared/types/records';
 
 const store = useSessionStore();
 const route = useRoute();
 
 const mode = ref<Mode>('cooking');
-// Quick-tonight deliberately resets each visit; only the mode toggle is remembered (§6.1).
-const effortFilter = ref<EffortFilter>('noLimit');
 const lastChampion = ref<HistoryRecord | null>(null);
 
 onMounted(() => {
@@ -41,10 +38,10 @@ function newSeed(): number {
 }
 
 function dealMeIn(): void {
-    store.prefs.save(mode.value, effortFilter.value);
+    store.prefs.save(mode.value);
     navigateTo({
         path: '/play',
-        query: { new: '1', seed: String(newSeed()), mode: mode.value, effort: effortFilter.value },
+        query: { new: '1', seed: String(newSeed()), mode: mode.value },
     });
 }
 </script>
@@ -72,11 +69,6 @@ function dealMeIn(): void {
         <!-- Every primary action lives in the bottom 40% of the viewport (§9.1). -->
         <div class="flex flex-col gap-4 pb-[env(safe-area-inset-bottom)]">
             <HomeModeToggle :mode="mode" @update:mode="mode = $event" />
-            <HomeEffortChips
-                v-if="mode === 'cooking'"
-                :effort-filter="effortFilter"
-                @update:effort-filter="effortFilter = $event"
-            />
             <button
                 type="button"
                 data-testid="home-cta"

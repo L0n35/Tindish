@@ -1,5 +1,4 @@
 import type { Dish, Mode } from '../types/dish';
-import type { EffortFilter } from '../types/session';
 import type { Tuning } from '../tuning';
 
 export interface SoftPenaltyContext {
@@ -14,12 +13,10 @@ export type RelaxationLevel = 0 | 1 | 2 | 3;
 
 export function filterCandidates(deck: readonly Dish[], opts: {
     mode: Mode;
-    effortFilter: EffortFilter;
     excludeIds: ReadonlySet<string>;
 }): Dish[] {
     return deck
         .filter((dish) => dish.modes.includes(opts.mode))
-        .filter((dish) => opts.mode !== 'cooking' || opts.effortFilter !== 'quick' || dish.tags.effort === 'quick')
         .filter((dish) => !opts.excludeIds.has(dish.id))
         .sort((a, b) => (a.id < b.id ? -1 : 1));
 }
@@ -46,7 +43,6 @@ export type CandidateResolution =
 export function resolveCandidates(args: {
     deck: readonly Dish[];
     mode: Mode;
-    effortFilter: EffortFilter;
     excludeIds: ReadonlySet<string>;
     recentDeals: readonly Dish[];
     tuning: Tuning;

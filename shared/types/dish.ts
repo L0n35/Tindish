@@ -8,8 +8,6 @@ export type Vibe = 'comfort' | 'fresh' | 'indulgent' | 'healthy';
 export type Temperature = 'hot' | 'cold';
 export type Richness = 1 | 2 | 3;
 export type Spice = 0 | 1 | 2 | 3;
-export type Effort = 'quick' | 'medium' | 'project';
-
 export interface DishTags {
     cuisine: string;
     protein: string;
@@ -18,7 +16,6 @@ export interface DishTags {
     temperature: Temperature;
     spice: Spice;
     vibe: Vibe;
-    effort?: Effort;
 }
 
 export interface Dish {

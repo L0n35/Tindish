@@ -8,10 +8,9 @@ const dish = deckById.get('chicken-pad-thai')!;
 const other = deckById.get('salmon-poke-bowl')!;
 
 describe('tags', () => {
-    it('a dish exposes exactly 7 scored tag keys, never effort', () => {
+    it('a dish exposes exactly 7 scored tag keys', () => {
         const keys = tagValuesOf(dish);
         expect(keys).toHaveLength(7);
-        expect(keys.some((k) => k.startsWith('effort'))).toBe(false);
     });
 
     it('numeric tags become categorical keys', () => {

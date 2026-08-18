@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import type { Dish } from '#shared/types/dish';
-import type { NarrationLine } from '~/utils/narrationController';
 
 const props = defineProps<{
     champion: Dish;
     runnerUp: Dish | null;
     usedRunnerUp: boolean;
-    line: NarrationLine | null;
+    line: string;
 }>();
 
 defineEmits<{ sorted: []; runnerUp: [] }>();
@@ -44,20 +43,14 @@ const burst = computed(() => Array.from({ length: 12 }, (_, i) => ({
         <div class="mx-auto mt-4 w-full max-w-[300px]" style="animation: tindish-spring 500ms ease-out">
             <CardSwipeCard :dish="champion" />
         </div>
+        <!-- Keyed so promoting the runner-up crossfades to its new line. -->
         <Transition name="fade" mode="out-in">
             <p
-                :key="line?.kind === 'ai' ? 'ai' : `t-${line?.kind === 'template' ? line.text : ''}`"
+                :key="line"
                 data-testid="match-line"
-                :data-kind="line?.kind ?? 'template'"
                 class="mx-auto mt-4 max-w-[34ch] text-center text-lg leading-snug text-char/80"
                 style="transition: opacity 300ms"
-            >
-                <template v-if="line?.kind === 'ai'">
-                    <span class="font-semibold">{{ line.profile }}</span>
-                    <span class="mt-1 block text-base text-char/70">{{ line.why }}</span>
-                </template>
-                <template v-else-if="line !== null">{{ line.text }}</template>
-            </p>
+            >{{ line }}</p>
         </Transition>
         <div class="mt-auto flex flex-col items-center gap-2 pt-6 pb-[env(safe-area-inset-bottom)]">
             <button

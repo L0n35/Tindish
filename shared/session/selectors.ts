@@ -1,4 +1,4 @@
-import type { BracketMatch, SessionState, SwipeReaction, Reaction } from '../types/session';
+import type { BracketMatch, SessionState, SwipeReaction } from '../types/session';
 import type { Tuning } from '../tuning';
 import { extensionHasCandidates, type EngineContext } from '../engine/dealer';
 import { reduce, viewOf } from './reducer';
@@ -67,8 +67,4 @@ export function topPreferences(state: SessionState, tuning: Tuning, n: number): 
         .filter((entry) => entry.score > 0)
         .sort((a, b) => (b.score - a.score) || (a.value < b.value ? -1 : 1))
         .slice(0, n);
-}
-
-export function sessionReactions(state: SessionState): { dishId: string; reaction: Reaction }[] {
-    return state.reactions.map((r) => ({ ...r }));
 }

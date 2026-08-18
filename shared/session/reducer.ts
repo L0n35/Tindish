@@ -28,7 +28,6 @@ export function viewOf(state: SessionState): DealerView {
     return {
         seed: state.config.seed,
         mode: state.config.mode,
-        effortFilter: state.config.effortFilter,
         dealerMode: state.dealerMode,
         dealerContext: state.config.dealerContext,
         stats: state.engine.stats,
@@ -77,7 +76,6 @@ export function createInitialState(config: SessionConfig, ctx: EngineContext): S
     if (dealerMode === 'adaptive') {
         const candidates = filterCandidates(ctx.deck, {
             mode: config.mode,
-            effortFilter: config.effortFilter,
             excludeIds: new Set<string>(),
         });
         const trio = selectOpeningTrio(

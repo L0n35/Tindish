@@ -141,16 +141,15 @@ describe('shuffled dealer', () => {
         expect(s.finalists).toHaveLength(4);
     });
 
-    it('ignores the diversity guard and penalties but respects mode/effort filters', () => {
-        const quick = start(9, makeCtx(), { mode: 'cooking', effortFilter: 'quick' });
-        let s = quick;
+    it('ignores the diversity guard and penalties but respects the mode filter', () => {
+        let s = start(9, makeCtx(), { mode: 'cooking' });
         const dealt: string[] = [s.currentCard!];
         for (let i = 0; i < 11 && s.phase === 'swiping'; i++) {
             s = sw(baseContext, s, 'dislike');
             if (s.currentCard) dealt.push(s.currentCard);
         }
         for (const id of dealt) {
-            expect(baseContext.byId.get(id)!.tags.effort).toBe('quick');
+            expect(baseContext.byId.get(id)!.modes).toContain('cooking');
         }
     });
 });

@@ -13,18 +13,8 @@ function shareOf(dishes: Dish[], predicate: (d: Dish) => boolean): number {
 }
 
 describe('deck schema', () => {
-    it('has 90-100 dishes, >= 60 per mode, unique kebab-case ids, effort on all cookable dishes', () => {
+    it('has 90-100 dishes, >= 60 per mode, unique kebab-case ids', () => {
         expect(() => deckSchema.parse(deck)).not.toThrow();
-    });
-
-    it('rejects a cooking dish without effort', () => {
-        // Keep length within schema bounds so the effort refinement is what fails.
-        const broken = [...deck.slice(0, deck.length - 1), {
-            ...deck[0]!,
-            id: 'broken-dish',
-            tags: { ...deck[0]!.tags, effort: undefined },
-        }];
-        expect(deckSchema.safeParse(broken).success).toBe(false);
     });
 });
 
@@ -59,18 +49,6 @@ describe.each(modes)('deck balance (%s pool)', (mode) => {
             const hotShare = inVibe.filter((d) => d.tags.temperature === 'hot').length / inVibe.length;
             expect(hotShare, `${vibe} hot`).toBeLessThanOrEqual(0.9);
             expect(1 - hotShare, `${vibe} cold`).toBeLessThanOrEqual(0.9);
-        }
-    });
-});
-
-describe('quick cooking pool stays sessionable', () => {
-    const quick = deck.filter((d) => d.modes.includes('cooking') && d.tags.effort === 'quick');
-
-    it('holds at least 12 dishes across at least 5 formats with every vibe >= 2', () => {
-        expect(quick.length).toBeGreaterThanOrEqual(12);
-        expect(new Set(quick.map((d) => d.tags.primaryFormat)).size).toBeGreaterThanOrEqual(5);
-        for (const vibe of vibes) {
-            expect(quick.filter((d) => d.tags.vibe === vibe).length, vibe).toBeGreaterThanOrEqual(2);
         }
     });
 });

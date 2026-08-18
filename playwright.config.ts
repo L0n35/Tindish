@@ -27,7 +27,6 @@ export default defineConfig({
         env: {
             PORT: '3210',
             HOST: '127.0.0.1',
-            NUXT_ANTHROPIC_API_KEY: '',   // no-key path: deterministic template narration
         },
         reuseExistingServer: !process.env.CI,
         timeout: 90_000,

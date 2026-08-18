@@ -36,7 +36,6 @@ export function runAgentSession(args: {
         sessionId: `sim-${args.agent.name}-${args.seed}`,
         seed: args.seed,
         mode: args.mode,
-        effortFilter: 'noLimit',
         dealerContext: { recentChampions: [], lastSessionShownIds: [], historyChampionIds: [] },
         startedAt: 1_750_000_000_000,
     };
@@ -108,7 +107,6 @@ export function runAgentSession(args: {
         deckHash: hashDeck(ctx.deck),
         tuningVersion: tuning.tuningVersion,
         mode: config.mode,
-        effortFilter: config.effortFilter,
         dealerContext: config.dealerContext,
         startedAt: config.startedAt,
         events,

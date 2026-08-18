@@ -16,12 +16,8 @@ export const dishSchema = z.object({
         temperature: z.enum(['hot', 'cold']),
         spice: z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3)]),
         vibe: z.enum(['comfort', 'fresh', 'indulgent', 'healthy']),
-        effort: z.enum(['quick', 'medium', 'project']).optional(),
     }).strict(),
-}).strict().refine(
-    (dish) => !dish.modes.includes('cooking') || dish.tags.effort !== undefined,
-    { message: 'effort is required when modes includes cooking' },
-);
+}).strict();
 
 export const deckSchema = z.array(dishSchema)
     .min(90).max(100)

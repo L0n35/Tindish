@@ -1,5 +1,5 @@
 import type { Mode } from './dish';
-import type { CrownSource, DealerMode, SessionEvent, EffortFilter, DealerContext } from './session';
+import type { CrownSource, DealerMode, SessionEvent, DealerContext } from './session';
 
 export interface HistoryRecord {
     sessionId: string;
@@ -9,7 +9,6 @@ export interface HistoryRecord {
     tuningVersion: number;
     events: SessionEvent[];
     mode: Mode;
-    effortFilter: EffortFilter;
     dealerContext: DealerContext;
     startedAt: number;
     shownIds: string[];
@@ -18,7 +17,6 @@ export interface HistoryRecord {
     source: CrownSource;
     usedRunnerUp: boolean;
     ts: number;
-    weather?: { line: string };
 }
 
 export type EndedVia = 'bracket' | 'direct' | 'history' | 'ended' | 'abandoned';

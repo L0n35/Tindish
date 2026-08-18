@@ -1,5 +1,5 @@
 import type { Dish, Mode } from '../types/dish';
-import type { DealerContext, DealerMode, EffortFilter } from '../types/session';
+import type { DealerContext, DealerMode } from '../types/session';
 import type { Tuning } from '../tuning';
 import { deriveRng, shuffle, type Rng } from './rng';
 import { predictedScore, underObservation, type TagStats } from './scoring';
@@ -24,7 +24,6 @@ export function createEngineContext(deck: readonly Dish[], tuning: Tuning): Engi
 export interface DealerView {
     seed: number;
     mode: Mode;
-    effortFilter: EffortFilter;
     dealerMode: DealerMode;
     dealerContext: DealerContext;
     stats: TagStats;
@@ -67,7 +66,6 @@ function adaptiveNext(ctx: EngineContext, view: DealerView, _rng: Rng): DealResu
     const resolution = resolveCandidates({
         deck: ctx.deck,
         mode: view.mode,
-        effortFilter: view.effortFilter,
         excludeIds: excludedIds(view),
         recentDeals,
         tuning: ctx.tuning,
@@ -106,13 +104,12 @@ function adaptiveNext(ctx: EngineContext, view: DealerView, _rng: Rng): DealResu
     return { dishId: best.id };
 }
 
-// Field-test baseline: a seeded Fisher-Yates over the mode/effort-filtered pool, always
+// Field-test baseline: a seeded Fisher-Yates over the mode-filtered pool, always
 // derived from decision 0, dealt in order skipping shown cards. No trio, no exploit or
 // explore, no diversity guard, no soft penalties — it baselines the dealing policy only.
 function shuffledNext(ctx: EngineContext, view: DealerView): DealResult {
     const pool = filterCandidates(ctx.deck, {
         mode: view.mode,
-        effortFilter: view.effortFilter,
         excludeIds: new Set<string>(),
     });
     const order = shuffle(pool, deriveRng(view.seed, 0));
@@ -125,7 +122,6 @@ function shuffledNext(ctx: EngineContext, view: DealerView): DealResult {
 export function selectProbe(ctx: EngineContext, view: DealerView): string[] | null {
     const unseen = filterCandidates(ctx.deck, {
         mode: view.mode,
-        effortFilter: view.effortFilter,
         excludeIds: excludedIds(view),
     });
     const dishes = selectProbeDishes(unseen, view.stats, ctx.tuning);
@@ -137,7 +133,6 @@ export function selectProbe(ctx: EngineContext, view: DealerView): string[] | nu
 export function extensionHasCandidates(ctx: EngineContext, view: DealerView): boolean {
     return filterCandidates(ctx.deck, {
         mode: view.mode,
-        effortFilter: view.effortFilter,
         excludeIds: excludedIds(view),
     }).length > 0;
 }

@@ -29,7 +29,6 @@ function makeStoredEnvelope(overrides: Partial<SessionEnvelope> = {}): SessionEn
         deckHash: hashDeck(deck),
         tuningVersion: defaultTuning.tuningVersion,
         mode: 'takeaway',
-        effortFilter: 'noLimit',
         dealerContext: { recentChampions: [], lastSessionShownIds: [], historyChampionIds: [] },
         startedAt: Date.now(),
         events: [],
@@ -45,7 +44,7 @@ describe('useSessionStore driver (shell machine + persistence wiring)', () => {
 
     it('startNew persists the envelope and an open metrics record before the first swipe', () => {
         const store = useSessionStore();
-        store.startNew({ seed: 2, mode: 'takeaway', effortFilter: 'noLimit' });
+        store.startNew({ seed: 2, mode: 'takeaway' });
         expect(store.shell.value).toBe('active');
         const env = storedEnvelope();
         expect(env.events).toHaveLength(0);
@@ -57,7 +56,7 @@ describe('useSessionStore driver (shell machine + persistence wiring)', () => {
 
     it('write-through: every dispatch persists; leaveToHome + restoreActive re-folds to the same state', () => {
         const store = useSessionStore();
-        store.startNew({ seed: 2, mode: 'takeaway', effortFilter: 'noLimit' });
+        store.startNew({ seed: 2, mode: 'takeaway' });
         store.dispatch({ type: 'swipe', dishId: store.state.value!.currentCard!, reaction: 'like' });
         store.dispatch({ type: 'swipe', dishId: store.state.value!.currentCard!, reaction: 'dislike' });
         const snapshot = { ...store.state.value!, undo: null };
@@ -68,7 +67,7 @@ describe('useSessionStore driver (shell machine + persistence wiring)', () => {
 
     it('probe atomicity: the triggering dislike and probeShown land as one persisted unit', () => {
         const store = useSessionStore();
-        store.startNew({ seed: 2, mode: 'takeaway', effortFilter: 'noLimit' });
+        store.startNew({ seed: 2, mode: 'takeaway' });
         for (let i = 0; i < 7; i++) {
             store.dispatch({ type: 'swipe', dishId: store.state.value!.currentCard!, reaction: 'dislike' });
         }
@@ -121,7 +120,7 @@ describe('useSessionStore driver (shell machine + persistence wiring)', () => {
 
     it('launchSweep leaves a fresh restorable session and its open metrics record alone', () => {
         const store = useSessionStore();
-        store.startNew({ seed: 2, mode: 'takeaway', effortFilter: 'noLimit' });
+        store.startNew({ seed: 2, mode: 'takeaway' });
         const sessionId = store.sessionId.value!;
         store.leaveToHome();
         store.launchSweep();
@@ -140,7 +139,7 @@ describe('useSessionStore driver (shell machine + persistence wiring)', () => {
 
     it('the launch sweep marks orphaned open metrics records abandoned, sparing the restorable session', () => {
         const store = useSessionStore();
-        store.startNew({ seed: 2, mode: 'takeaway', effortFilter: 'noLimit' });
+        store.startNew({ seed: 2, mode: 'takeaway' });
         const liveSessionId = storedEnvelope().sessionId;
         const metrics = loadVersioned(storage, STORAGE_KEYS.metrics, metricsStoreSchema)!;
         metrics.records.unshift({
@@ -155,9 +154,9 @@ describe('useSessionStore driver (shell machine + persistence wiring)', () => {
         expect(swept.records.find((r) => r.sessionId === liveSessionId)!.endedVia).toBeUndefined();
     });
 
-    it('saveAndFinish writes the history record (with shownIds + weather), finalises metrics, clears the active key', () => {
+    it('saveAndFinish writes the history record (with shownIds), finalises metrics, clears the active key', () => {
         const store = useSessionStore();
-        store.startNew({ seed: 2, mode: 'takeaway', effortFilter: 'noLimit' });
+        store.startNew({ seed: 2, mode: 'takeaway' });
         for (let i = 0; i < 4; i++) {
             store.dispatch({ type: 'swipe', dishId: store.state.value!.currentCard!, reaction: 'like' });
         }
@@ -169,46 +168,21 @@ describe('useSessionStore driver (shell machine + persistence wiring)', () => {
         }
         store.dispatch({ type: 'crown', dishId: bracket.championId!, source: 'bracket' });
         const sessionId = store.sessionId.value!;
-        store.saveAndFinish('12°C and raining');
+        store.saveAndFinish();
 
         expect(storage.getItem(STORAGE_KEYS.active)).toBeNull();
         const history = loadVersioned(storage, STORAGE_KEYS.history, historyStoreSchema)!;
         expect(history.records[0]!.sessionId).toBe(sessionId);
         expect(history.records[0]!.source).toBe('bracket');
         expect(history.records[0]!.shownIds.length).toBeGreaterThanOrEqual(4);
-        expect(history.records[0]!.weather).toEqual({ line: '12°C and raining' });
         const metrics = loadVersioned(storage, STORAGE_KEYS.metrics, metricsStoreSchema)!;
         expect(metrics.records.find((r) => r.sessionId === sessionId)!.endedVia).toBe('bracket');
         expect(metrics.records.find((r) => r.sessionId === sessionId)!.timeToChampionMs).toBeDefined();
     });
 
-    it('patchHistoryWeather fills a missing weather line by sessionId and never overwrites one', () => {
-        const store = useSessionStore();
-        store.startNew({ seed: 2, mode: 'takeaway', effortFilter: 'noLimit' });
-        for (let i = 0; i < 4; i++) {
-            store.dispatch({ type: 'swipe', dishId: store.state.value!.currentCard!, reaction: 'like' });
-        }
-        let bracket = store.state.value!.bracket!;
-        while (!bracket.complete) {
-            const match = bracket.matches[bracket.currentMatchIndex]!;
-            store.dispatch({ type: 'bracketPick', matchIndex: bracket.currentMatchIndex, winnerId: match.a! });
-            bracket = store.state.value!.bracket!;
-        }
-        store.dispatch({ type: 'crown', dishId: bracket.championId!, source: 'bracket' });
-        const sessionId = store.sessionId.value!;
-        store.saveAndFinish();   // saved without weather (Sorted beat the response)
-
-        store.patchHistoryWeather(sessionId, '5°C and snowing');
-        let history = loadVersioned(storage, STORAGE_KEYS.history, historyStoreSchema)!;
-        expect(history.records[0]!.weather).toEqual({ line: '5°C and snowing' });
-        store.patchHistoryWeather(sessionId, '30°C and clear');
-        history = loadVersioned(storage, STORAGE_KEYS.history, historyStoreSchema)!;
-        expect(history.records[0]!.weather).toEqual({ line: '5°C and snowing' });
-    });
-
     it('refuses the whole dispatch when the event log is full (persisted envelope always re-folds to live state)', () => {
         const store = useSessionStore();
-        store.startNew({ seed: 2, mode: 'takeaway', effortFilter: 'noLimit' });
+        store.startNew({ seed: 2, mode: 'takeaway' });
         // swipe/undo cycles are the only unbounded event source: fill the log to the cap.
         while (storedEnvelope().events.length < defaultTuning.EVENT_LOG_MAX - 1) {
             store.dispatch({ type: 'swipe', dishId: store.state.value!.currentCard!, reaction: 'dislike' });
@@ -227,7 +201,7 @@ describe('useSessionStore driver (shell machine + persistence wiring)', () => {
 
     it('an illegal event is dropped (prod path): dispatch returns false and state is unchanged', () => {
         const store = useSessionStore();
-        store.startNew({ seed: 2, mode: 'takeaway', effortFilter: 'noLimit' });
+        store.startNew({ seed: 2, mode: 'takeaway' });
         const before = store.state.value!;
         expect(store.dispatch({ type: 'sorted' })).toBe(false);
         expect(store.state.value).toBe(before);
@@ -235,7 +209,7 @@ describe('useSessionStore driver (shell machine + persistence wiring)', () => {
 
     it('toggleEaten flips and persists', () => {
         const store = useSessionStore();
-        store.startNew({ seed: 2, mode: 'takeaway', effortFilter: 'noLimit' });
+        store.startNew({ seed: 2, mode: 'takeaway' });
         const sessionId = store.sessionId.value!;
         store.metrics.toggleEaten(sessionId);
         expect(store.metrics.load().find((r) => r.sessionId === sessionId)!.eaten).toBe(true);

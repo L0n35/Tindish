@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { loadVersioned, saveVersioned, type StorageLike } from '#shared/persistence/migrate';
 import {
     activeStoreSchema, historyStoreSchema, metricsStoreSchema, prefsStoreSchema, STORAGE_KEYS,
+    historyMigrations, prefsMigrations,
 } from '#shared/persistence/schemas';
 import { deck } from '#shared/data/deck';
 import { defaultTuning } from '#shared/tuning';
@@ -42,15 +43,37 @@ describe('versioned storage discipline', () => {
         expect(storage.data.has(STORAGE_KEYS.active)).toBe(false);
     });
 
-    it('a registered migration upgrades old data instead of resetting', () => {
+    it('the prefs strip-migration repairs a blob carrying the legacy effortFilter key', () => {
         const storage = memoryStorage({
-            [STORAGE_KEYS.prefs]: JSON.stringify({ v: 0, mode: 'cooking' }),
+            [STORAGE_KEYS.prefs]: JSON.stringify({ v: 1, mode: 'cooking', effortFilter: 'quick' }),
         });
-        const loaded = loadVersioned(storage, STORAGE_KEYS.prefs, prefsStoreSchema, {
-            0: (old) => ({ ...(old as object), v: 1, effortFilter: 'noLimit' }),
-        });
-        expect(loaded).toEqual({ v: 1, mode: 'cooking', effortFilter: 'noLimit' });
+        const loaded = loadVersioned(storage, STORAGE_KEYS.prefs, prefsStoreSchema, prefsMigrations);
+        expect(loaded).toEqual({ v: 1, mode: 'cooking' });
         expect(JSON.parse(storage.data.get(STORAGE_KEYS.prefs)!)).toEqual(loaded);
+    });
+
+    it('the history strip-migration repairs records carrying legacy effortFilter/weather keys', () => {
+        const session = new TestSession(baseContext, makeConfig(2));
+        session.swipe('like');
+        const env = session.envelope();
+        const legacyRecord = {
+            sessionId: env.sessionId, seed: env.seed, engineVersion: env.engineVersion,
+            deckHash: env.deckHash, tuningVersion: env.tuningVersion, events: env.events,
+            mode: env.mode, effortFilter: 'noLimit', dealerContext: env.dealerContext,
+            startedAt: env.startedAt, shownIds: ['chicken-pad-thai'],
+            championId: 'chicken-pad-thai', source: 'bracket' as const, usedRunnerUp: false,
+            ts: env.startedAt + 60_000, weather: { line: '12°C and raining' },
+        };
+        const storage = memoryStorage({
+            [STORAGE_KEYS.history]: JSON.stringify({ v: 1, records: [legacyRecord] }),
+        });
+        const loaded = loadVersioned(storage, STORAGE_KEYS.history, historyStoreSchema, historyMigrations);
+        expect(loaded).not.toBeNull();
+        expect(loaded!.records).toHaveLength(1);
+        expect(loaded!.records[0]!.championId).toBe('chicken-pad-thai');
+        expect(loaded!.records[0]).not.toHaveProperty('effortFilter');
+        expect(loaded!.records[0]).not.toHaveProperty('weather');
+        expect(storage.data.has(STORAGE_KEYS.history)).toBe(true);
     });
 
     it('a throwing storage backend is swallowed (privacy mode never crashes the app)', () => {
@@ -72,10 +95,10 @@ describe('versioned storage discipline', () => {
             records: [{
                 sessionId: env.sessionId, seed: env.seed, engineVersion: env.engineVersion,
                 deckHash: env.deckHash, tuningVersion: env.tuningVersion, events: env.events,
-                mode: env.mode, effortFilter: env.effortFilter, dealerContext: env.dealerContext,
+                mode: env.mode, dealerContext: env.dealerContext,
                 startedAt: env.startedAt, shownIds: ['chicken-pad-thai'],
                 championId: 'chicken-pad-thai', source: 'bracket' as const, usedRunnerUp: false,
-                ts: env.startedAt + 60_000, weather: { line: '12°C and raining' },
+                ts: env.startedAt + 60_000,
             }],
         };
         expect(historyStoreSchema.safeParse(history).success).toBe(true);
@@ -88,7 +111,7 @@ describe('versioned storage discipline', () => {
             }],
         };
         expect(metricsStoreSchema.safeParse(metrics).success).toBe(true);
-        expect(prefsStoreSchema.safeParse({ v: 1, mode: 'takeaway', effortFilter: 'quick' }).success).toBe(true);
+        expect(prefsStoreSchema.safeParse({ v: 1, mode: 'takeaway' }).success).toBe(true);
     });
 });
 
@@ -99,7 +122,6 @@ describe('tuning', () => {
         expect(defaultTuning.MAX_CARDS).toBe(12);
         expect(defaultTuning.EXTENSION_CARDS).toBe(6);
         expect(defaultTuning.MAX_PROBES).toBe(2);
-        expect(defaultTuning.MAX_SESSION_ACTIONS).toBe(24);
         expect(defaultTuning.OMG_CAP).toBe(3);
         expect(defaultTuning.STREAK_THRESHOLD).toBe(7);
         expect(defaultTuning.CHAMPION_24H_PENALTY).toBe(-1.0);

@@ -10,8 +10,8 @@ export type Migration = (parsed: unknown) => unknown;
 
 // Read discipline: parse + validate in a try/catch; on failure attempt a registered
 // migration for the stored version; still failing → remove the key and return null.
-// Never throws to callers — malformed or old data never crashes (§8). v1 ships with an
-// empty migrations registry (the mechanism must exist; there is nothing to migrate from).
+// Never throws to callers — malformed or old data never crashes (§8). Registered
+// migrations live next to the schemas (see historyMigrations / prefsMigrations).
 export function loadVersioned<T>(
     storage: StorageLike,
     key: string,

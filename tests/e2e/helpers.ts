@@ -29,7 +29,6 @@ export async function seedHistory(page: Page, championIds: string[], mode: 'cook
             tuningVersion: 1,
             events: [],
             mode: historyMode,
-            effortFilter: 'noLimit',
             dealerContext: { recentChampions: [], lastSessionShownIds: [], historyChampionIds: [] },
             startedAt: now - (i + 2) * 86_400_000,
             shownIds: [],
