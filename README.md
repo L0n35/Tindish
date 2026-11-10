@@ -10,6 +10,17 @@ finalists; the match line narrates the result and never picks it. No code path f
 
 Personal project. Two users, no accounts, no database, no recipes.
 
+**Live: [cw-tindish.pages.dev](https://cw-tindish.pages.dev)**
+
+## Key decisions
+
+- **I took the AI out.** The first version used an LLM (Claude, through a small rate-limited server endpoint) to write the line on the match screen, alongside a weather line and an effort filter. By design that line only ever described the result, so it added a wait, a running cost, an API key and a server to look after, without ever changing which dish won. I replaced it with local template lines that appear instantly and can be tested. That removed over 1,300 lines and left an app with no server and no environment variables.
+- **It never decides for you.** Only dishes you liked, superliked or picked can reach the final. The app chooses which cards to show you, never the answer.
+- **Sessions are event-sourced.** Every swipe is saved as an event, and one pure function rebuilds the whole session from the seed, deck, settings and events. A phone reload mid-bracket restores exactly where you were, and the simulator and tests run the app's real code.
+- **Tested with simulated diners.** Eight simulated users with hidden tastes play about 4,000 sessions per test run. The tests check rules that must always hold: every finalist was liked, every session ends properly and replays match. How quickly the adaptive dealer finds a winner is printed as a report rather than asserted, because that's a tuning question, not a correctness one.
+- **Real dinners before new features.** The plan is ten real dinner decisions before adding anything. The adaptive and shuffled dealers alternate automatically as a built-in A/B test, and a hidden `/debug` page logs each session, including whether the winning dish actually got eaten.
+- **Real photos, no AI images.** Every dish photo is openly licensed, with attribution in `public/images/credits.json`.
+
 ## Quick start
 
 ```bash
@@ -33,10 +44,10 @@ template copy, rendered instantly and deterministically from session state.
 
 All four quality gates (`typecheck`, `test`, `test:e2e`, `build`) are part of done.
 
-## Deploy (Vercel, zero-config)
+## Deploy
 
-Push the repo → import in Vercel. Nitro auto-detects the Vercel preset; there are no env
-vars and nothing else to configure.
+Live on Cloudflare Pages at [cw-tindish.pages.dev](https://cw-tindish.pages.dev). There are
+no env vars or server secrets to configure.
 
 ## Tuning guide
 
